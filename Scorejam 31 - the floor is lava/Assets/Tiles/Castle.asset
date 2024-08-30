@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6074002581203037682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda8c512f313cec41b7cd18bd9ec2644, type: 3}
+  m_Name: CastleGround
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 6291244673797297366, guid: 36b98aff675744c4c96ccbe928bdd786, type: 3}
+  guid: 15503290-bed2-4939-ac1b-53f7a7675b05
+  behaviours:
+  - {fileID: 11400000, guid: aa3de903e50e69f408ee7cc3dc2657e9, type: 2}
+  boundSize: {x: 1, y: 1, z: 1}
+  offset: {x: 0, y: 0, z: 0}
+  offsetRotation: {x: 0, y: 0, z: 0}
+  roundUp: 0
+  calcBoundsButton:
+    height: 0
+  variants: []
+  getNewGuidButton:
+    height: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad3548312a2e6e4983f1f019fe63b27, type: 3}
+  m_Name: Castle
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: -6074002581203037682}
+  TileFromGuid:
+    keys:
+    - 15503290-bed2-4939-ac1b-53f7a7675b05
+    values:
+    - {fileID: -6074002581203037682}
+  defaultLayer:
+    name: Default
+    color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    rasterSize:
+      x: 1
+      y: 1
+      z: 1
+    layerObjects: []
+  layers:
+  - name: Ground
+    color: {r: 0.73248583, g: 0.6884699, b: 0.36624292, a: 1}
+    rasterSize:
+      x: 1
+      y: 1
+      z: 1
+    layerObjects:
+    - {fileID: -6074002581203037682}
+  dictionaryFromList:
+    height: 0
