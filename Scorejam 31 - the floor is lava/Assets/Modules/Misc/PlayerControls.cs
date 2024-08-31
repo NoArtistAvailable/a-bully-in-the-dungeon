@@ -20,6 +20,11 @@ namespace ScoreJam31
             moveInput.asset.Enable();
         }
 
+        private void OnDisable()
+        {
+            movement.Input = Vector2.zero;
+        }
+
         private void FixedUpdate()
         {
             if (!movement) movement = GetComponentInChildren<Movement>();

@@ -32,7 +32,7 @@ namespace ScoreJam31
 			if (!rb) rb = GetComponentInChildren<Rigidbody>();
 			var targetPosition = rb.position.xz();
 			targetPosition += Input * speed * Time.fixedDeltaTime;
-			rb.MovePosition(new Vector3(targetPosition.x, 0, targetPosition.y));
+			rb.MovePosition(new Vector3(targetPosition.x, rb.position.y, targetPosition.y));
 			Walking = Input.magnitude > 0.1f;
 
 			if (Input.magnitude < 0.1f) return;

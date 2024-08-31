@@ -14,7 +14,7 @@ public class SpriteAnimator : MonoBehaviour
     }
 
     public List<Clip> clips;
-    [NonSerialized] public SpriteRenderer renderer;
+    [NonSerialized] new public SpriteRenderer renderer;
     private Clip _current;
 
     public Clip current

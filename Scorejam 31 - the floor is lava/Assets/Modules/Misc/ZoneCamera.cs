@@ -16,7 +16,19 @@ public class ZoneCamera : MonoBehaviour, CameraManager.IVCam
 	public float transitionTime = 1f;
 
 	private float startTime = 0f;
-	
+
+	public bool global = false;
+
+	private void OnEnable()
+	{
+		if(global) CameraManager.Register(this);
+	}
+
+	private void OnDisable()
+	{
+		CameraManager.Deregister(this);
+	}
+
 	public void ComputePosition(ref Vector3 position)
 	{
 		float trueWeight = Mathf.Lerp(0f, Weight,
