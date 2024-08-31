@@ -22,6 +22,7 @@ namespace ScoreJam31
 
         private void OnDisable()
         {
+            if (!movement) return;
             movement.Input = Vector2.zero;
         }
 

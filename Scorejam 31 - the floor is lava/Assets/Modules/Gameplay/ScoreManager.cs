@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using elZach.Common;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class ScoreManager : MonoBehaviour
     public Animatable scorePanel;
     public Animatable scoreEntryTemplate;
     public TextMeshProUGUI scoreSum;
+
+    public InputActionReference continueAction;
 
     public static List<ScoreEntry> currentLevelScores = new List<ScoreEntry>();
 
@@ -67,8 +70,8 @@ public class ScoreManager : MonoBehaviour
             sum += entry.score;
             scoreSum.text = sum.ToString();
         }
-
-        await WebTask.Delay(6f);
+        float startTime = Time.time;
+        while (Time.time - startTime < 6f && !continueAction.action.IsInProgress()) await Task.Yield();
         await scorePanel.Play(0);
         scorePanel.gameObject.SetActive(false);
         currentLevelScores.Clear();

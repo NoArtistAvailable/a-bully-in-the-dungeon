@@ -15,12 +15,17 @@ public class GameManager : MonoBehaviour
     public static Vector3 playerPosition => Instance.player.transform.position;
 
     public static event Func<Task> onBeforeNextLevel;
+    public static event Func<Task> onBeforeLevelStarts;
+
+    public static bool isQuitting = false;
 
     private void OnEnable()
     {
+        if (isQuitting) return;
         player.gameObject.SetActive(false);
         LevelCallbacks.onLevelSetup += OnLevelStart;
         LevelCallbacks.onLevelRemoved += OnLevelRemoved;
+        Application.quitting += () => isQuitting = true;
     }
 
     private void OnDisable()
@@ -49,8 +54,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync(scenes[currentLevel].value, LoadSceneMode.Additive);
     }
 
-    private void OnLevelStart()
+    private async void OnLevelStart()
     {
+        if (onBeforeLevelStarts != null) await onBeforeLevelStarts.Invoke();
+        if (isQuitting) return;
         player.transform.position = StartPosition.Instance.transform.position;
         player.gameObject.SetActive(true);
         player.enabled = true;

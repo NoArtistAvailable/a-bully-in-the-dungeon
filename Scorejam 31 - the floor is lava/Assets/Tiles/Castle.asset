@@ -96,6 +96,7 @@ MonoBehaviour:
   - {fileID: 9030999343970916782}
   - {fileID: -4321379632226280891}
   - {fileID: 4782488339940966409}
+  - {fileID: 1692746917488025488}
   TileFromGuid:
     keys:
     - 15503290-bed2-4939-ac1b-53f7a7675b05
@@ -103,12 +104,14 @@ MonoBehaviour:
     - ef2c683a-7974-44f3-bf15-b8296bd54110
     - ddc2d097-2048-457b-ab9b-59dcc6692c55
     - 16f2b99d-8a9f-4dfd-aec3-1541d6025f09
+    - ddaa6d60-8464-4cf5-a209-ac81baf5674c
     values:
     - {fileID: -6074002581203037682}
     - {fileID: -296294466929810732}
     - {fileID: 9030999343970916782}
     - {fileID: -4321379632226280891}
     - {fileID: 4782488339940966409}
+    - {fileID: 1692746917488025488}
   defaultLayer:
     name: Default
     color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -130,7 +133,34 @@ MonoBehaviour:
     - {fileID: 9030999343970916782}
     - {fileID: -4321379632226280891}
     - {fileID: 4782488339940966409}
+    - {fileID: 1692746917488025488}
   dictionaryFromList:
+    height: 0
+--- !u!114 &1692746917488025488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda8c512f313cec41b7cd18bd9ec2644, type: 3}
+  m_Name: BumpBuddy
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 8155222603658961359, guid: 328f19e3438c97d4785952d9752289a3, type: 3}
+  guid: ddaa6d60-8464-4cf5-a209-ac81baf5674c
+  behaviours:
+  - {fileID: 11400000, guid: aa3de903e50e69f408ee7cc3dc2657e9, type: 2}
+  boundSize: {x: 1, y: 1, z: 1}
+  offset: {x: 0, y: 0, z: 0}
+  offsetRotation: {x: 0, y: 0, z: 0}
+  roundUp: 0
+  calcBoundsButton:
+    height: 0
+  variants: []
+  getNewGuidButton:
     height: 0
 --- !u!114 &4782488339940966409
 MonoBehaviour:

@@ -29,6 +29,7 @@ public class GoalFlag : MonoBehaviour
         ScoreManager.AddScore("Finished", 100);
         GameManager.Instance.FinishLevel();
     }
+    #if UNITY_EDITOR
 
     private void OnDrawGizmos()
     {
@@ -36,4 +37,5 @@ public class GoalFlag : MonoBehaviour
         Handles.Label(transform.position + Vector3.up, Vector2.Distance(GameManager.Instance.player.transform.position.xz(), transform.position.xz()).ToString());
         Handles.DrawWireDisc(transform.position, Vector3.up, radius);
     }
+    #endif
 }

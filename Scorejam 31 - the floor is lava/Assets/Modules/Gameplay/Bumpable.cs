@@ -23,8 +23,21 @@ public class Bumpable : MonoBehaviour
     private void OnEnable()
     {
         rb = GetComponent<Rigidbody>();
+        rb.isKinematic = true;
         gameObject.name = nameList.GetRandom();
         GetComponentInChildren<TextMeshPro>().text = gameObject.name;
+        LevelCallbacks.onLevelSetup += EnablePhysics;
+    }
+
+    private void OnDisable()
+    {
+        LevelCallbacks.onLevelSetup -= EnablePhysics;
+    }
+
+    private void EnablePhysics()
+    {
+        rb.isKinematic = false;
+        activated = false;
     }
 
     void OnCollisionEnter(Collision col)
