@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cinemachine;
 using elZach.Common;
 using TMPro;
 using UnityEngine;
@@ -25,6 +26,7 @@ public class ScoreManager : MonoBehaviour
     public InputActionReference continueAction;
 
     public static List<ScoreEntry> currentLevelScores = new List<ScoreEntry>();
+    public static int currentScore;
 
     public static void AddScore(string name, int score)
     {
@@ -36,12 +38,17 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         GameManager.onBeforeNextLevel += ShowLevelScore;
+        GameManager.onRestart += Restart;
         scoreEntryTemplate.gameObject.SetActive(false);
     }
-
     private void OnDestroy()
     {
         GameManager.onBeforeNextLevel -= ShowLevelScore;
+        GameManager.onRestart -= Restart;
+    }
+    private void Restart()
+    {
+        currentScore = 0;
     }
 
     private List<GameObject> createdScoreObjects = new List<GameObject>();
@@ -68,12 +75,13 @@ public class ScoreManager : MonoBehaviour
             clone.SetTo(0);
             await clone.Play(1);
             sum += entry.score;
-            scoreSum.text = sum.ToString();
+            scoreSum.text = $"{currentScore} + {sum} = {currentScore+sum}";
         }
         float startTime = Time.time;
         while (Time.time - startTime < 6f && !continueAction.action.IsInProgress()) await Task.Yield();
         await scorePanel.Play(0);
         scorePanel.gameObject.SetActive(false);
+        currentScore += sum;
         currentLevelScores.Clear();
     }
 

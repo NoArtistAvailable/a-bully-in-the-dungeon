@@ -8,8 +8,11 @@ using UnityEngine.Networking;
 
 public class LeaderboardManager : MonoBehaviour
 {
-    public const string gameName = "test-game";
+    public const string gameName = "bully-in-a-dungeon";
     public const string serverUrl = "https://elzach-gamejams.glitch.me";
+    
+    private static LeaderboardManager _instance;
+    public static LeaderboardManager Instance => _instance.OrSet(ref _instance, FindObjectOfType<LeaderboardManager>);
     
     [Serializable]
     public class ScoreData

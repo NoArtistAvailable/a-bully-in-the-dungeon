@@ -21,7 +21,7 @@ public class LavaFloor : MonoBehaviour
         {
             activated = true;
             GameManager.Instance.player.GetComponentInChildren<Rigidbody>().AddForce(Vector3.up * 10f, ForceMode.Impulse);
-            GameManager.Instance.FinishLevel();
+            GameManager.Instance.FinishLevel(true);
         } 
     }
 }

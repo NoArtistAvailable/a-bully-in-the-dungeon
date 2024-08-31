@@ -12,7 +12,9 @@ public class PlayerCamera : MonoBehaviour, CameraManager.IVCam
 	
 	public void ComputePosition(ref Vector3 position)
 	{
-		position = target.position + CameraManager.mainCam.transform.forward * -distance;
+		position = target.position;
+		position.y = 0;
+		position += CameraManager.mainCam.transform.forward * -distance;
 	}
 
 	private void OnEnable()
