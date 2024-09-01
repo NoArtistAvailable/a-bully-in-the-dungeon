@@ -70,7 +70,7 @@ public class ScoreManager : MonoBehaviour
             clone.transform.SetSiblingIndex(scoreEntryTemplate.transform.GetSiblingIndex());
             var texts = clone.GetComponentsInChildren<TextMeshProUGUI>();
             texts[0].text = entry.name;
-            texts[1].text = $"+{entry.score}";
+            texts[1].text = $"{(entry.score > 0 ? "+" : "")}{entry.score}";
             clone.gameObject.SetActive(true);
             clone.SetTo(0);
             await clone.Play(1);

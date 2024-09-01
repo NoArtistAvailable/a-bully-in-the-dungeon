@@ -25,7 +25,7 @@ public class Bumpable : MonoBehaviour
 
     public bool activated { get; private set; } = false;
 
-    public static List<string> nameList = new List<string>() { "Herschel", "Lucas", "Francis", "Conrad", "Heiner", "Kelvin", "Seymore", "Josh", "Alfred", "Pierce", "Paul", "Rennard", "Eve", "Lip"};
+    public static List<string> nameList = new List<string>() { "Herschel", "Lucas", "Francis", "Conrad", "Heiner", "Kelvin", "Seymore", "Josh", "Alfred", "Pierce", "Paul", "Rennard", "Eve", "Lip", "Rupert", "Gideon", "Milton", "Thaddeus", "Emmett", "Ellis", "Cyrus", "Roland", "Quentin", "Felix", "Silas", "Leopold", "Oscar", "Wallace", "Victor", "Alaric", "Bertram", "Cedric", "Dorian", "Elliot", "Harvey", "Magnus", "Reginald", "Stuart", "Winston", "Ambrose", "Clive", "Ferdinand", "Nigel", "Benedict"};
     
     private void OnEnable()
     {
