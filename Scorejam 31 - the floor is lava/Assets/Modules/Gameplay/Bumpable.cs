@@ -81,6 +81,7 @@ public class Bumpable : MonoBehaviour
             activated = true;
             ScoreManager.AddScore($"Killed {gameObject.name}", baseScore);
             PlayVoice(dieSfx.GetRandom());
+            VFXManager.SpawnX(rb.position);
         }
     }
 

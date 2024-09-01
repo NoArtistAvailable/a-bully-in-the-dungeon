@@ -52,7 +52,7 @@ public class SawBlade : MonoBehaviour
         if (!GameManager.isPlaying) return;
         if (other.attachedRigidbody && other.attachedRigidbody.CompareTag("Player"))
         {
-            GameManager.Instance.FinishLevel(true);
+            GameManager.Instance.player.Kill();
         }
     }
 

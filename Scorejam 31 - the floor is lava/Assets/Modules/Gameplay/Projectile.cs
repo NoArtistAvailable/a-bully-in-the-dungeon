@@ -29,6 +29,6 @@ public class Projectile : MonoBehaviour
         gameObject.Despawn();
         if (!other.attachedRigidbody || !other.attachedRigidbody.CompareTag("Player")) return;
         activated = true;
-        GameManager.Instance.FinishLevel(true);
+        GameManager.Instance.player.Kill();
     }
 }

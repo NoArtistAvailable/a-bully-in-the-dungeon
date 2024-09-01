@@ -50,8 +50,8 @@ public class StartMenu : MonoBehaviour
     public string SanitizeUserName(string input)
     {
         if (input == null) return null;
-
+        input = input.Trim();
         // Allow only alphanumeric characters and underscores
-        return Regex.Replace(input, @"[^a-zA-Z0-9_]", string.Empty);
+        return Regex.Replace(input, @"[^a-zA-Z0-9_ ]", string.Empty);
     }
 }

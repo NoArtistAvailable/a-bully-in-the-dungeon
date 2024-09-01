@@ -15,6 +15,8 @@ namespace ScoreJam31
 
         private Movement movement;
 
+        public AudioClip loseSound;
+        
         private void OnEnable()
         {
             moveInput.asset.Enable();
@@ -37,6 +39,14 @@ namespace ScoreJam31
             var rght = new Vector3(fwd.z, 0, -fwd.x);
             var dir = fwd * raw.y + rght * raw.x;
             movement.Input = dir.xz();
+        }
+
+        public void Kill()
+        {
+            enabled = false;
+            GameManager.Instance.FinishLevel(true);
+            VFXManager.SpawnX(transform.position);
+            AudioManager.PlayClip(loseSound, 0.8f, 2f);
         }
     }   
 }
