@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class GoalFlag : MonoBehaviour
 {
+    public static event Action onReached;
     private bool activated = true;
     private float radius = 0.25f;
 
@@ -25,6 +26,7 @@ public class GoalFlag : MonoBehaviour
     {
         if (activated) return;
         activated = true;
+        onReached?.Invoke();
         // for(int i= 0; i < 10; i++) ScoreManager.AddScore($"Did a thing [{i}]", UnityEngine.Random.Range(100, 400));
         ScoreManager.AddScore("Finished", 100);
         GameManager.Instance.FinishLevel(false);

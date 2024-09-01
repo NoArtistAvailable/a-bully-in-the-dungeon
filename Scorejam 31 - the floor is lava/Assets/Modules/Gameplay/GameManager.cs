@@ -16,10 +16,10 @@ public class GameManager : MonoBehaviour
 
     public static event Func<Task> onBeforeNextLevel;
     public static event Func<Task> onBeforeLevelStarts;
-
-    public static event Action onRestart;
+    public static event Action onLevelStart, onLevelEnd, onRestart;
 
     public static bool isQuitting = false;
+    public static bool isPlaying = false;
 
     private string _playerName = null;
 
@@ -59,8 +59,22 @@ public class GameManager : MonoBehaviour
 
     private const bool looping = false;
     
+    #if UNITY_EDITOR
+    private bool loadedInitial = false;    
+    #endif
+    
     private void GetNextLevel()
     {
+        #if UNITY_EDITOR
+        if (SceneManager.loadedSceneCount > 1 && !loadedInitial)
+        {
+            var sceneName = SceneManager.GetSceneAt(1).name;
+            var inList = scenes.FindIndex(x => x.value == sceneName);
+            if (inList >= 0) currentLevel = inList - 1;
+            loadedInitial = true;
+        }
+        #endif
+        
         currentLevel++;
         currentLevel %= scenes.Count;
         for (int i = 1; i < SceneManager.loadedSceneCount; i++)
@@ -75,9 +89,13 @@ public class GameManager : MonoBehaviour
     {
         if (onBeforeLevelStarts != null) await onBeforeLevelStarts.Invoke();
         if (isQuitting) return;
+        
         player.transform.position = StartPosition.Instance.transform.position;
         player.gameObject.SetActive(true);
         player.enabled = true;
+        isPlaying = true;
+        
+        onLevelStart?.Invoke();
     }
 
     private void OnLevelRemoved()
@@ -89,6 +107,9 @@ public class GameManager : MonoBehaviour
     public async void FinishLevel(bool ended)
     {
         player.enabled = false;
+        isPlaying = false;
+        onLevelEnd?.Invoke();
+        
         if(onBeforeNextLevel != null)
             await onBeforeNextLevel.Invoke();
 
