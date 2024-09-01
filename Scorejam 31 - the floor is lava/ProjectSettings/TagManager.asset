@@ -18,8 +18,8 @@ TagManager:
   - Player
   - InteractsOnlyWIthPlayer
   - BumpBuddy
-  - 
-  - 
+  - Obstacle
+  - Projectiles
   - 
   - 
   - 

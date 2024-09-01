@@ -16,7 +16,7 @@ public class Bumpable : MonoBehaviour
     private int baseScore = 51;
     private int penalty = 1;
 
-    private bool activated = false;
+    public bool activated { get; private set; } = false;
 
     public static List<string> nameList = new List<string>() { "Herschel", "Lucas", "Francis", "Conrad", "Heiner", "Kelvin", "Seymore", "Josh", "Alfred", "Pierce", "Paul", "Rennard", "Eve", "Lip"};
     

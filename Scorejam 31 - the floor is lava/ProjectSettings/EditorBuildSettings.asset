@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Officer2.unity
     guid: f8cd44617893bb349b8d3b4e95952dba
+  - enabled: 1
+    path: Assets/Scenes/SawbladeIntro.unity
+    guid: 93e153d29af4c0443bbd3134430a4acb
+  - enabled: 1
+    path: Assets/Scenes/DeathCorridor.unity
+    guid: 45a43bb6625058d4d90c0b07d4c407ad
   m_configObjects: {}

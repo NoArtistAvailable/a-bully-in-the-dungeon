@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 public class Officer : MonoBehaviour
 {
     public GameObject projectilePrefab;
+    private Bumpable bumpable;
 
     public float shotCooldown = 3f;
 
@@ -20,12 +21,13 @@ public class Officer : MonoBehaviour
     private void OnEnable()
     {
         currentCooldown = Random.Range(0f, shotCooldown);
+        bumpable = GetComponent<Bumpable>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.isPlaying || shooting) return;
+        if (!GameManager.isPlaying || shooting || bumpable.activated) return;
         currentCooldown -= Time.deltaTime;
         if (currentCooldown <= 0)
         {

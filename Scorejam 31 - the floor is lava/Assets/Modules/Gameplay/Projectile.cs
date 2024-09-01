@@ -26,6 +26,8 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (activated) return;
+        gameObject.Despawn();
+        if (!other.attachedRigidbody || !other.attachedRigidbody.CompareTag("Player")) return;
         activated = true;
         GameManager.Instance.FinishLevel(true);
     }
