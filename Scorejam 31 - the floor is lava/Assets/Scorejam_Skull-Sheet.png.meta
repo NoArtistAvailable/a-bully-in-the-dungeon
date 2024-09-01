@@ -93,15 +93,28 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scorejam_Skull-Sheet_0
+      name: Hero_Idle
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 7
@@ -118,11 +131,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scorejam_Skull-Sheet_1
+      name: Hero_death
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 7
@@ -139,11 +152,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scorejam_Skull-Sheet_2
+      name: Hero_Walk_1
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 7
@@ -160,11 +173,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scorejam_Skull-Sheet_3
+      name: Hero_Walk_2
       rect:
         serializedVersion: 2
         x: 96
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 7
@@ -180,6 +193,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Buddy_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 973980ad3316c994190cb7bd01c4f94b
+      internalID: -2067814829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buddy_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01e7fcb093cec304988cb370dbb67206
+      internalID: -1524211823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buddy_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a220e150b70befa41bffa4ff7eb52131
+      internalID: -718192957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Officer_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8ee851a035e35b4c85d7c9486f3243d
+      internalID: -1127199881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -191,10 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Scorejam_Skull-Sheet_0: 1029305857
-      Scorejam_Skull-Sheet_1: -817580259
-      Scorejam_Skull-Sheet_2: -543000430
-      Scorejam_Skull-Sheet_3: 1530661322
+      Buddy_1: -2067814829
+      Buddy_2: -1524211823
+      Buddy_3: -718192957
+      Hero_Idle: 1029305857
+      Hero_Walk_1: -543000430
+      Hero_Walk_2: 1530661322
+      Hero_death: -817580259
+      Officer_1: -1127199881
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -393,8 +393,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1029305857, guid: 853e2ebf50af70e43b2fc3bead4c3678, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -1127199881, guid: 853e2ebf50af70e43b2fc3bead4c3678, type: 3}
+  m_Color: {r: 1, g: 0.6745283, b: 0.83102757, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -419,7 +419,7 @@ MonoBehaviour:
   clips:
   - name: Idle
     sprites:
-    - {fileID: 1029305857, guid: 853e2ebf50af70e43b2fc3bead4c3678, type: 3}
+    - {fileID: -1127199881, guid: 853e2ebf50af70e43b2fc3bead4c3678, type: 3}
     duration: 0.5
   - name: Run
     sprites:

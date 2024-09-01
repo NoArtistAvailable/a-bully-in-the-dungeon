@@ -312,7 +312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1918025826678413878}
   - component: {fileID: 6837217132932294482}
-  - component: {fileID: 3982125724217513547}
+  - component: {fileID: 2909065418075477188}
   m_Layer: 12
   m_Name: Graphic
   m_TagString: Untagged
@@ -376,8 +376,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1029305857, guid: 853e2ebf50af70e43b2fc3bead4c3678, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -2067814829, guid: 853e2ebf50af70e43b2fc3bead4c3678, type: 3}
+  m_Color: {r: 1, g: 0.9913098, b: 0.8066038, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -387,7 +387,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3982125724217513547
+--- !u!114 &2909065418075477188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -396,16 +396,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8195811039441509579}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f8b02424b84c8d409cc46cb1ac0c387, type: 3}
+  m_Script: {fileID: 11500000, guid: 32e338a681540f44797e0257bdae74c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clips:
-  - name: Idle
-    sprites:
-    - {fileID: 1029305857, guid: 853e2ebf50af70e43b2fc3bead4c3678, type: 3}
-    duration: 0.5
-  - name: Run
-    sprites:
-    - {fileID: -817580259, guid: 853e2ebf50af70e43b2fc3bead4c3678, type: 3}
-    - {fileID: -543000430, guid: 853e2ebf50af70e43b2fc3bead4c3678, type: 3}
-    duration: 0.16
+  sprites:
+  - {fileID: -2067814829, guid: 853e2ebf50af70e43b2fc3bead4c3678, type: 3}
+  - {fileID: -1524211823, guid: 853e2ebf50af70e43b2fc3bead4c3678, type: 3}
+  - {fileID: -718192957, guid: 853e2ebf50af70e43b2fc3bead4c3678, type: 3}

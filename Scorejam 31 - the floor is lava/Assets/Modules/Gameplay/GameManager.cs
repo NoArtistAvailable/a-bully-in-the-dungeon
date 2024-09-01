@@ -71,8 +71,8 @@ public class GameManager : MonoBehaviour
             var sceneName = SceneManager.GetSceneAt(1).name;
             var inList = scenes.FindIndex(x => x.value == sceneName);
             if (inList >= 0) currentLevel = inList - 1;
-            loadedInitial = true;
         }
+        loadedInitial = true;
         #endif
         
         currentLevel++;
@@ -130,7 +130,9 @@ public class GameManager : MonoBehaviour
             else playerName = "unknown";
         }
         await LeaderboardManager.Instance.PostHighScoreAsync(playerName, ScoreManager.currentScore);
+        if (isQuitting) return;
         await LeaderboardManager.Instance.GetHighScoresAsync();
+        if (isQuitting) return;
         
         player.gameObject.SetActive(false);
 
