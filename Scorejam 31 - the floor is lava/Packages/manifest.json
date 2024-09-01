@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.elzach.extensions": "file:D:/git/Packages/elzach-extensions",
+    "com.elzach.gamejamtools": "file:D:/git/Packages/elzach-gamejamtools",
     "com.elzach.leveleditor": "file:D:/git/Packages/elzach-leveleditor",
     "com.elzach.objectpooling": "file:D:/git/Packages/elzach-objectpooling",
     "com.elzach.pathfinding": "file:D:/git/Packages/elzach-pathfinding",

@@ -18,6 +18,9 @@ public class Officer : MonoBehaviour
 
     private bool shooting = false;
     
+    public List<AudioClip> shotSfx;
+    [Vector2Range(0.1f,2f)]public Vector2 audioRange = Vector2.one;
+    
     private void OnEnable()
     {
         currentCooldown = Random.Range(0f, shotCooldown);
@@ -56,5 +59,7 @@ public class Officer : MonoBehaviour
         SceneManager.MoveGameObjectToScene(bullet.gameObject, this.gameObject.scene);
         bullet.transform.position = transform.position + Vector3.up * shotOffset.y + dir * shotOffset.x;
         bullet.transform.rotation = Quaternion.LookRotation(dir, Vector3.up);
+        
+        AudioManager.PlayClip(shotSfx.GetRandom(), audioRange.GetRandom());
     }
 }

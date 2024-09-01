@@ -118,3 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c864650c9151d4193c8f291eac3c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio:
+  - {fileID: 8300000, guid: 558927962497e62428207cc12681e518, type: 3}
+  - {fileID: 8300000, guid: a2f67365625e7724aafb24837328d331, type: 3}
+  audioRange: {x: 0.8828194, y: 0.9246696}

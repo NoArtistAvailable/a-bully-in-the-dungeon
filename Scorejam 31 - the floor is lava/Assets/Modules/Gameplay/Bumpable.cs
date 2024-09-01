@@ -16,6 +16,13 @@ public class Bumpable : MonoBehaviour
     private int baseScore = 51;
     private int penalty = 1;
 
+    public List<AudioClip> bumpSfx;
+    public List<AudioClip> dieSfx;
+    [Vector2Range(0.1f, 2f)] public Vector2 voiceRange = Vector2.one;
+
+    [SerializeField]
+    private Button<Bumpable> testAudioButton = new Button<Bumpable>(x => x.PlayVoice(x.bumpSfx.GetRandom()));
+
     public bool activated { get; private set; } = false;
 
     public static List<string> nameList = new List<string>() { "Herschel", "Lucas", "Francis", "Conrad", "Heiner", "Kelvin", "Seymore", "Josh", "Alfred", "Pierce", "Paul", "Rennard", "Eve", "Lip"};
@@ -26,18 +33,26 @@ public class Bumpable : MonoBehaviour
         rb.isKinematic = true;
         gameObject.name = nameList.GetRandom();
         GetComponentInChildren<TextMeshPro>().text = gameObject.name;
-        LevelCallbacks.onLevelSetup += EnablePhysics;
+        GameManager.onLevelStart += EnablePhysics;
+        GameManager.onLevelEnd += DisablePhysics;
     }
 
     private void OnDisable()
     {
-        LevelCallbacks.onLevelSetup -= EnablePhysics;
+        GameManager.onLevelStart -= EnablePhysics;
+        GameManager.onLevelEnd -= DisablePhysics;
     }
 
     private void EnablePhysics()
     {
         rb.isKinematic = false;
         activated = false;
+    }
+
+    private void DisablePhysics()
+    {
+        rb.isKinematic = true;
+        activated = true;
     }
 
     void OnCollisionEnter(Collision col)
@@ -54,6 +69,7 @@ public class Bumpable : MonoBehaviour
             dir.y = 4f;
             rb.AddForce(dir, ForceMode.VelocityChange);
             baseScore -= penalty;
+            PlayVoice(bumpSfx.GetRandom());
         }
     }
 
@@ -64,6 +80,14 @@ public class Bumpable : MonoBehaviour
         {
             activated = true;
             ScoreManager.AddScore($"Killed {gameObject.name}", baseScore);
+            PlayVoice(dieSfx.GetRandom());
         }
+    }
+
+    public void PlayVoice(AudioClip clip)
+    {
+        var audio = GetComponent<AudioSource>();
+        audio.pitch = voiceRange.GetRandom();
+        audio.PlayOneShot(clip);
     }
 }

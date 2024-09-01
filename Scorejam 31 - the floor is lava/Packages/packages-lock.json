@@ -6,6 +6,14 @@
       "source": "local",
       "dependencies": {}
     },
+    "com.elzach.gamejamtools": {
+      "version": "file:D:/git/Packages/elzach-gamejamtools",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.elzach.extensions": "0.0.5"
+      }
+    },
     "com.elzach.leveleditor": {
       "version": "file:D:/git/Packages/elzach-leveleditor",
       "depth": 0,

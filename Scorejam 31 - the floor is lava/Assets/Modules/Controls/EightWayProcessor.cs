@@ -16,6 +16,8 @@ public class EightWayProcessor : InputProcessor<Vector2>
 	}
 #endif
 
+	public float threshold = 0.2f;
+
 	[RuntimeInitializeOnLoadMethod]
 	static void Initialize()
 	{
@@ -24,8 +26,9 @@ public class EightWayProcessor : InputProcessor<Vector2>
 	public override Vector2 Process(Vector2 value, InputControl control)
 	{
 		var magnitude = value.magnitude;
-		value.x = value.x > 0.05f ? 1f : value.x < -0.05f ? -1f : 0f;
-		value.y = value.y > 0.05f ? 1f : value.y < -0.05f ? -1f : 0f;
+		if (magnitude < threshold) return value;
+		value.x = value.x > threshold ? 1f : value.x < -threshold ? -1f : 0f;
+		value.y = value.y > threshold ? 1f : value.y < -threshold ? -1f : 0f;
 		value *= magnitude;
 		return value;
 	}

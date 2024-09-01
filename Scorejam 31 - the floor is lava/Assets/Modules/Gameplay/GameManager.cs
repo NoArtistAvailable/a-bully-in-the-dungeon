@@ -83,6 +83,13 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log($"Loading Level {currentLevel} : {(scenes.Count > currentLevel ? scenes[currentLevel].value : "[out of bounds]")}");
         SceneManager.LoadSceneAsync(scenes[currentLevel].value, LoadSceneMode.Additive);
+        
+        //let's create a checkpoint every 3 stages
+        if (currentLevel % 3 == 0)
+        {
+            lastCheckPoint = currentLevel;
+            lastCheckPointScore = ScoreManager.currentScore;
+        }
     }
 
     private async void OnLevelStart()
@@ -145,6 +152,17 @@ public class GameManager : MonoBehaviour
     {
         onRestart?.Invoke();
         currentLevel = -1;
+        GetNextLevel();
+    }
+
+    private int lastCheckPoint;
+    private int lastCheckPointScore;
+    public void RestartFromLastCheckpoint()
+    {
+        onRestart?.Invoke();
+        currentLevel = lastCheckPoint - 1;
+        ScoreManager.currentScore = lastCheckPointScore;
+        ScoreManager.AddScore("Checkpoint Malus", -50);
         GetNextLevel();
     }
 
