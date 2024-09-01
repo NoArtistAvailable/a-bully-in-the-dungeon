@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
         {
             lastCheckPoint = currentLevel;
             lastCheckPointScore = ScoreManager.currentScore;
+            ScoreManager.AddScore("Checkpoint Reached", 15);
         }
     }
 

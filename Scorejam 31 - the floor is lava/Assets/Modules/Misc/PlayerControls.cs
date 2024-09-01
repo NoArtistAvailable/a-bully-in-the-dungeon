@@ -43,6 +43,7 @@ namespace ScoreJam31
 
         public void Kill()
         {
+            if (!enabled) return;
             enabled = false;
             GameManager.Instance.FinishLevel(true);
             VFXManager.SpawnX(transform.position);
