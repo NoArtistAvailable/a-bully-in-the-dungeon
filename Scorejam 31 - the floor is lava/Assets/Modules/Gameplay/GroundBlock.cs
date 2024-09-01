@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using elZach.Common;
@@ -8,7 +9,9 @@ public class GroundBlock : MonoBehaviour
     private bool activated = false;
     public List<AudioClip> audio;
     [Vector2Range(0.1f,2f)]public Vector2 audioRange = Vector2.one;
-    
+
+    public event Action onSunk;
+
     void OnCollisionExit(Collision col)
     {
         if (activated) return;
@@ -20,5 +23,6 @@ public class GroundBlock : MonoBehaviour
         activated = true;
         ScoreManager.AddScore("Floor Destroyed", 1);
         AudioManager.PlayClip(audio.GetRandom(), audioRange.GetRandom(), 1f);
+        onSunk?.Invoke();
     }
 }

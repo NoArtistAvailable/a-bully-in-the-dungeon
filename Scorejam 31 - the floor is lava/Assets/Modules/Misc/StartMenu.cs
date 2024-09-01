@@ -35,6 +35,7 @@ public class StartMenu : MonoBehaviour
     {
         PlayerPrefs.SetString("PlayerName", inputField.text);
         SceneManager.LoadScene(gameScene.value, LoadSceneMode.Single);
+        LeaderboardManager.Instance.GetHighScoreNoCallback();
     }
 
     private void CheckValidName(string arg0)

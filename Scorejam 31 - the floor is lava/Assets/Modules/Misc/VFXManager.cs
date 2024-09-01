@@ -25,6 +25,6 @@ public class VFXManager : MonoBehaviour
         SceneManager.MoveGameObjectToScene(clone.gameObject, additiveScene);
         clone.position = position;
         clone.gameObject.SetActive(true);
-        clone.hideFlags = HideFlags.DontSave;
+        clone.gameObject.hideFlags = HideFlags.DontSave;
     }
 }

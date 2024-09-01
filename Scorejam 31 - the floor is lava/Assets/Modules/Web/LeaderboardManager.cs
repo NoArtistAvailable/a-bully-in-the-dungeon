@@ -80,6 +80,37 @@ public class LeaderboardManager : MonoBehaviour
         }
     }
 
+    public async Task GetHighScoreNoCallback()
+    {
+        string url = $"{serverUrl}/highscores/{gameName}";
+
+        // Create a UnityWebRequest for GET
+        UnityWebRequest request = UnityWebRequest.Get(url);
+
+        // Send the request and await the response
+        var operation = request.SendWebRequest();
+
+        while (!operation.isDone)
+            await Task.Yield();
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log("GET request successful: " + request.downloadHandler.text);
+            // Deserialize JSON to a List<ScoreData>
+            var json = request.downloadHandler.text;
+            ScoreDataList scoreDataList = JsonUtility.FromJson<ScoreDataList>("{\"scores\":" + json + "}");
+            for (var i = 0; i < scoreDataList.scores.Count; i++)
+            {
+                var entry = scoreDataList.scores[i];
+                if (!Bumpable.nameList.Contains(entry.name)) Bumpable.nameList.Add(entry.name);
+            }
+        }
+        else
+        {
+            Debug.LogError($"GET request failed: {request.error}");
+        }
+    }
+    
     // Async method to GET high scores for a game
     public async Task GetHighScoresAsync()
     {
@@ -104,6 +135,7 @@ public class LeaderboardManager : MonoBehaviour
             {
                 var entry = scoreDataList.scores[i];
                 Debug.Log($"[{i}] {entry.name} : {entry.score}");
+                if (!Bumpable.nameList.Contains(entry.name)) Bumpable.nameList.Add(entry.name);
             }
             onGotLeaderBoard?.Invoke(scoreDataList.scores);
         }
