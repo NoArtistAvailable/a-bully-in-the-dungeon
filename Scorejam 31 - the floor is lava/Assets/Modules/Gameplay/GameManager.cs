@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static GameManager Instance => _instance.OrSet(ref _instance, FindObjectOfType<GameManager>);
     public PlayerControls player;
+    public GameObject stallingGameObject;
     public static Vector3 playerPosition => Instance.player.transform.position;
 
     public static event Func<Task> onBeforeNextLevel;
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         LevelCallbacks.onLevelSetup += OnLevelStart;
         LevelCallbacks.onLevelRemoved += OnLevelRemoved;
         Application.quitting += () => isQuitting = true;
+        stallingGameObject.SetActive(false);
     }
 
     private void OnDisable()
@@ -139,7 +141,9 @@ public class GameManager : MonoBehaviour
             if (PlayerPrefs.HasKey("PlayerName")) playerName = PlayerPrefs.GetString("PlayerName");
             else playerName = "unknown";
         }
+        stallingGameObject.SetActive(true);
         await LeaderboardManager.Instance.PostHighScoreAsync(playerName, ScoreManager.currentScore);
+        stallingGameObject.SetActive(false);
         if (isQuitting) return;
         await LeaderboardManager.Instance.GetHighScoresAsync();
         if (isQuitting) return;
