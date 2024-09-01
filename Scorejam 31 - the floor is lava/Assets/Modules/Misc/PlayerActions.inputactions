@@ -39,7 +39,7 @@
                     "id": "978bfe49-cc26-4a3d-ab7b-7d7a29327403",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "EightWay",
                     "groups": ";Gamepad",
                     "action": "Move",
                     "isComposite": false,
@@ -239,6 +239,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cc7f5d73-a9f3-4cc1-947e-e3821369d5a8",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touch",
                     "action": "Continue",
                     "isComposite": false,
                     "isPartOfComposite": false

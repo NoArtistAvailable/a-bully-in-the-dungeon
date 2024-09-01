@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
 
     public async void FinishLevel(bool ended)
     {
+        if (!isPlaying) return;
         player.enabled = false;
         isPlaying = false;
         onLevelEnd?.Invoke();

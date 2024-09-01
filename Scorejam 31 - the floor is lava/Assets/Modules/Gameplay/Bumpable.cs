@@ -13,8 +13,8 @@ public class Bumpable : MonoBehaviour
     private float cooldown = 0.8f;
     private float lastBump = 0;
 
-    private int baseScore = 55;
-    private int penalty = 5;
+    private int baseScore = 51;
+    private int penalty = 1;
 
     private bool activated = false;
 
@@ -59,7 +59,7 @@ public class Bumpable : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (activated) return;
+        if (activated || rb.isKinematic) return;
         if (rb.position.y < LavaFloor.Instance.transform.position.y)
         {
             activated = true;

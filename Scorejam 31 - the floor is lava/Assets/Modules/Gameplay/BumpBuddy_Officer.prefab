@@ -421,8 +421,7 @@ MonoBehaviour:
     sprites:
     - {fileID: -1127199881, guid: 853e2ebf50af70e43b2fc3bead4c3678, type: 3}
     duration: 0.5
-  - name: Run
+  - name: Cast
     sprites:
-    - {fileID: -817580259, guid: 853e2ebf50af70e43b2fc3bead4c3678, type: 3}
-    - {fileID: -543000430, guid: 853e2ebf50af70e43b2fc3bead4c3678, type: 3}
+    - {fileID: 1161828639, guid: 853e2ebf50af70e43b2fc3bead4c3678, type: 3}
     duration: 0.16

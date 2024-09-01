@@ -38,7 +38,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startTime < 0) return;
+        if (startTime < 0 || !GameManager.isPlaying) return;
         timeUI.text = timeLeft.ToString();
     }
 }

@@ -14,6 +14,8 @@ public class Officer : MonoBehaviour
 
     public Vector2 shotOffset = new Vector2(0.3f, 1f);
     private float currentCooldown = 0f;
+
+    private bool shooting = false;
     
     private void OnEnable()
     {
@@ -23,13 +25,24 @@ public class Officer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.isPlaying) return;
+        if (!GameManager.isPlaying || shooting) return;
         currentCooldown -= Time.deltaTime;
         if (currentCooldown <= 0)
         {
-            Shoot();
+            StartCoroutine(Casting());
             currentCooldown = shotCooldown;
         }
+    }
+
+    IEnumerator Casting()
+    {
+        var anim = GetComponentInChildren<SpriteAnimator>();
+        if(anim) anim.Play("Cast");
+        shooting = true;
+        yield return new WaitForSeconds(0.6f);
+        if(anim) anim.Play("Idle");
+        Shoot();
+        shooting = false;
     }
 
     private void Shoot()
