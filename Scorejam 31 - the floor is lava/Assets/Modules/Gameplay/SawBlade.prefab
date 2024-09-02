@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  range: 3
+  range: 4
 --- !u!65 &9221433277598552656
 BoxCollider:
   m_ObjectHideFlags: 0

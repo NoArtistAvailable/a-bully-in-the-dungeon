@@ -21,7 +21,7 @@ public class GroundBlock : MonoBehaviour
         var rb = this.gameObject.AddComponent<Rigidbody>();
         rb.drag = 5f;
         activated = true;
-        ScoreManager.AddScore("Floor Destroyed", 1);
+        ScoreManager.AddScore("Floor Destroyed", 1); //, transform.position + Vector3.up * 1.5f);
         AudioManager.PlayClip(audio.GetRandom(), audioRange.GetRandom(), 1f);
         onSunk?.Invoke();
     }

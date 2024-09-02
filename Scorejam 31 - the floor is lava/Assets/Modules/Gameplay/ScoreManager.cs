@@ -23,16 +23,36 @@ public class ScoreManager : MonoBehaviour
     public Animatable scoreEntryTemplate;
     public TextMeshProUGUI scoreSum;
 
+    public Transform pointIndicatorTemplate;
+
     public InputActionReference continueAction;
 
     public static List<ScoreEntry> currentLevelScores = new List<ScoreEntry>();
     public static int currentScore;
 
-    public static void AddScore(string name, int score)
+    public static void AddScore(string name, int score, Vector3? position = null)
     {
         var existing = currentLevelScores.Find(x => x.name == name);
         if (existing != null) existing.score += score;
         else currentLevelScores.Add(new ScoreEntry() { name = name, score = score });
+
+        if (position != null)
+        {
+            SpawnPointIndicator(score, position.Value);
+        }
+    }
+
+    private static async void SpawnPointIndicator(int score, Vector3 position)
+    {
+        var clone = Instance.pointIndicatorTemplate.Spawn();
+        clone.position = position;
+        clone.gameObject.SetActive(true);
+        var anim = clone.GetComponentInChildren<Animatable>();
+        var tmp = clone.GetComponentInChildren<TextMeshPro>();
+        tmp.text = $"+ {score}";
+        anim.SetTo(0);
+        await anim.Play(1);
+        clone.Despawn();
     }
 
     private void Start()
@@ -40,6 +60,7 @@ public class ScoreManager : MonoBehaviour
         GameManager.onBeforeNextLevel += ShowLevelScore;
         GameManager.onRestart += Restart;
         scoreEntryTemplate.gameObject.SetActive(false);
+        pointIndicatorTemplate.gameObject.SetActive(false);
     }
     private void OnDestroy()
     {

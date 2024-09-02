@@ -2082,6 +2082,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   transitionTime: 1
   global: 1
+  disableOnGameStart: 1
 --- !u!4 &941232666
 Transform:
   m_ObjectHideFlags: 0
@@ -2796,6 +2797,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   transitionTime: 0.1
   global: 1
+  disableOnGameStart: 1
 --- !u!1001 &1768674508
 PrefabInstance:
   m_ObjectHideFlags: 0

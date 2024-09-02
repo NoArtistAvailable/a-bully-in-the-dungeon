@@ -30,7 +30,7 @@ public class CameraManager : MonoBehaviour
     void Update()
     {
         if (!mainCam) mainCam = Camera.main;
-        Vector3 targetPosition = Vector3.zero;
+        Vector3 targetPosition = Vector3.zero + mainCam.transform.forward * -60f;
         foreach (var VCam in active)
         {
             VCam.ComputePosition(ref targetPosition);

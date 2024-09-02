@@ -87,11 +87,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync(scenes[currentLevel].value, LoadSceneMode.Additive);
         
         //let's create a checkpoint every 3 stages
-        if (currentLevel % 3 == 0)
+        if (currentLevel % 2 == 0)
         {
             lastCheckPoint = currentLevel;
             lastCheckPointScore = ScoreManager.currentScore;
-            ScoreManager.AddScore("Checkpoint Reached", 15);
+            // ScoreManager.AddScore("Checkpoint Reached", 15);
         }
     }
 

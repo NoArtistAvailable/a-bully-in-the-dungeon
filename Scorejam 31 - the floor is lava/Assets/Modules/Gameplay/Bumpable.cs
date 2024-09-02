@@ -61,7 +61,6 @@ public class Bumpable : MonoBehaviour
         if (col.body && col.body.CompareTag("Player"))
         {
             lastBump = Time.fixedTime;
-            Debug.Log($"{name} got bumped | {col.impulse}", this);
             
             var dir = rb.position - GameManager.playerPosition;
             dir.y = 0;
@@ -79,7 +78,7 @@ public class Bumpable : MonoBehaviour
         if (rb.position.y < LavaFloor.Instance.transform.position.y)
         {
             activated = true;
-            ScoreManager.AddScore($"Killed {gameObject.name}", baseScore);
+            ScoreManager.AddScore($"Killed {gameObject.name}", baseScore, transform.position + Vector3.up * 1.5f);
             PlayVoice(dieSfx.GetRandom());
             VFXManager.SpawnX(rb.position);
         }

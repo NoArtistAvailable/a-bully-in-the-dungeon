@@ -18,15 +18,19 @@ public class ZoneCamera : MonoBehaviour, CameraManager.IVCam
 	private float startTime = 0f;
 
 	public bool global = false;
-
+	public bool disableOnGameStart = true;
+	
+	
 	private void OnEnable()
 	{
 		if(global) CameraManager.Register(this);
+		if (disableOnGameStart) GameManager.onLevelStart += OnDisable;
 	}
 
 	private void OnDisable()
 	{
 		CameraManager.Deregister(this);
+		if (disableOnGameStart) GameManager.onLevelStart -= OnDisable;
 	}
 
 	public void ComputePosition(ref Vector3 position)
